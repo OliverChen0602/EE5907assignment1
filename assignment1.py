@@ -38,7 +38,7 @@ def roc_curve_points(y_true, y_score):
     tpr = np.array(tpr_list)
     # AUC via trapezoid rule over FPR-sorted
     order = np.argsort(fpr)
-    auc = np.trapezoid(tpr[order], fpr[order])
+    auc = np.trapz(tpr[order], fpr[order])
     return fpr, tpr, auc
 
 def plot_roc(y_true, y_score, title):
